@@ -3,6 +3,7 @@ package com.situ.ssm.springmvc;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.situ.ssm.entity.Bean;
+import com.situ.ssm.entity.BeanStuVO;
 import com.situ.ssm.entity.Student;
 import com.situ.ssm.entity.Teacher;
 
@@ -75,13 +77,13 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/register", method={RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView register(Date birthday, Student student) {
+	public ModelAndView register(/*Date birthday,*/ Student student) {
 		System.out.println(student);
-		System.out.println(birthday);
+//		System.out.println(birthday);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("student", student);
-		modelAndView.setViewName("student_info");
+		modelAndView.setViewName("/student_info.jsp");
 		return modelAndView;
 	}
 	
@@ -147,5 +149,24 @@ public class StudentController {
 		modelAndView.addObject("teacher", teacher);
 		modelAndView.setViewName("/add2.jsp");
 		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value="/deleteAll")
+	public String deleteAll(int[] ids) {
+		for (int id : ids) {
+			System.out.println(id);
+		}
+		
+		return "/deleteAll.jsp";
+	}
+	
+	@RequestMapping(value="/addAll")
+	public String addAll(BeanStuVO bean) {
+		List<Student> list = bean.getList();
+		for (Student student : list) {
+			System.out.println(student);
+		}
+		return "/addAll.jsp";
 	}
 }
