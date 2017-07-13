@@ -3,10 +3,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'student_add.jsp' starting page</title>
+    <title>My JSP 'student_info.jsp' starting page</title>
   </head>
   
   <body>
-  	${student}
+  	student_info<br/>
+  	${name}<br/>
+  	${age}<br/>
+  	
+    ${student}<br>
+  	${requestScope.student}<br>
+  	${sessionScope.student}
   </body>
 </html>

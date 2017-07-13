@@ -2,12 +2,12 @@ package com.situ.ssm.entity;
 
 import java.util.Date;
 
-public class Student {
+public class Teacher {
 	private String name;
 	private Integer age;
 	private Date birthday;
 
-	public Student() {
+	public Teacher() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", age=" + age + ", birthday="
+		return "Teacher [name=" + name + ", age=" + age + ", birthday="
 				+ birthday + "]";
 	}
 
