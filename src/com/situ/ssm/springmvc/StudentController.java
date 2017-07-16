@@ -27,13 +27,13 @@ import com.situ.ssm.entity.Teacher;
 @Controller
 @RequestMapping(value="/student")
 public class StudentController {
-	@InitBinder  
+	/*@InitBinder  
 	public void initBinder(WebDataBinder binder) {  
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
 		dateFormat.setLenient(false);  
 		binder.registerCustomEditor(Date.class, 
 				new CustomDateEditor(dateFormat, true));
-	}
+	}*/
 
 	
 	@RequestMapping(value="/add")
@@ -77,9 +77,8 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/register", method={RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView register(/*Date birthday,*/ Student student) {
+	public ModelAndView register(Student student) {
 		System.out.println(student);
-//		System.out.println(birthday);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("student", student);
@@ -90,7 +89,16 @@ public class StudentController {
 	@RequestMapping(value="/delete")
 	public String delete(int id) {
 		System.out.println(id);
-		return "student_info";
+		//转发到findAll()
+	    //return "forward:/student/findAll.action";
+	    //重定向到findAll()
+	    return "redirect:/student/findAll.action";
+	}
+	
+	@RequestMapping(value="/findAll")
+	public String findAll() {
+		System.out.println("findAll()");
+		return "/list.jsp";
 	}
 	
 	@RequestMapping(value="/add2")

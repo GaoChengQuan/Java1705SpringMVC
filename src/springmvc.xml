@@ -10,8 +10,20 @@
         <!-- 扫描@Controler  @Service   -->
         <context:component-scan base-package="com.situ.ssm"/>
         
-        <!-- 注解驱动 -->
-        <mvc:annotation-driven/>
+       <!-- 注解驱动 -->
+       <!-- <mvc:annotation-driven/> -->
+       <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
+       
+       <!-- 配置Conveter转换器  转换工厂  -->
+       <bean id="conversionServiceFactoryBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+       	<!-- 配置 多个转换器 -->
+       	<property name="converters">
+       		<list>
+       			<bean class="com.situ.ssm.conversion.DateConveter"/>
+       		</list>
+       	</property>
+       </bean>
+        
         
         <!-- 视图解释器
         	如果Controller中书写的是视图的逻辑名，这个视图解析器必须要配置。

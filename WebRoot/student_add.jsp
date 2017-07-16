@@ -7,7 +7,7 @@
   </head>
   
  <body>
-<form action="${pageContext.request.contextPath}/student/register.action" method="post">
+<form action="${pageContext.request.contextPath}/student/register.action" method="get">
  	<table>
  		<tr>
  			<td>姓名</td>
