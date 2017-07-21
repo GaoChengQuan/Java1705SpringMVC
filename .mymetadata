@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="Java1705SSM"
+  name="Java1705SpringMVC"
   id="myeclipse.1499910112623"
-  context-root="/Java1705SSM"
+  context-root="/Java1705SpringMVC"
   j2ee-spec="6.0"
-  archive="Java1705SSM.war">
+  archive="Java1705SpringMVC.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
