@@ -23,7 +23,20 @@
        		</list>
        	</property>
        </bean>
-        
+       
+       <!-- 配置拦截器  可以配置多个-->
+       <mvc:interceptors>
+       		<mvc:interceptor>
+       			<!-- 所有请求都进入拦截器 -->
+       			<mvc:mapping path="/**"/>
+       			<bean class="com.situ.ssm.interceprot.HandlerInterceptor1"/>
+       		</mvc:interceptor>
+       		<mvc:interceptor>
+       			<!-- 所有请求都进入拦截器 -->
+       			<mvc:mapping path="/**"/>
+       			<bean class="com.situ.ssm.interceprot.HandlerInterceptor2"/>
+       		</mvc:interceptor>
+       </mvc:interceptors>
         
         <!-- 视图解释器
         	如果Controller中书写的是视图的逻辑名，这个视图解析器必须要配置。
